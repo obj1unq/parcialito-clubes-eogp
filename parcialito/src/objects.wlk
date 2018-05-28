@@ -57,6 +57,18 @@ class Club {
 	method actividadEstrella() = actividadesSociales.any({actividad=>self.sociosEstrella(actividad)})
 	
 	method esPrestigioso() = equiposParticiopantes.any({equipo=>equipo.esExperimentado()}) || self.actividadEstrella()
+
+	method transferir(jugador, equipoOrigen, equipoDestino){
+		if(equipoOrigen.capitan()!=jugador and !equiposParticiopantes.contains(equipoDestino)){
+			equipoDestino.add(jugador)
+			jugador.partidosJugados(0)
+			equiposParticiopantes.foerach({equipo=>equipo.plantel().remove(jugador)})
+			actividadesSociales.foerach({actividad=>actividad.sociosParticipantes().remove(jugador)})
+			
+		}else{
+			self.error("No se puede realizar la tranferencia.")
+		}
+	}
 }
 
 class Equipo{
