@@ -1,0 +1,36 @@
+import objects.*
+describe "parcialito test" {
+
+	var socio1=new Socio(antiguedad=1)
+	var socio2=new Socio(antiguedad=5)
+	var socio3=new Socio(antiguedad=10)
+	var socio4=new Socio(antiguedad=15)
+	var socio5=new Socio(antiguedad=20)
+	var socio6=new Socio(antiguedad=25)
+
+	var jugador1= new Jugador(antiguedad=1,valorPase=50, partidosJugados=1)
+	var jugador2= new Jugador(antiguedad=5,valorPase=100, partidosJugados=10)
+	var jugador3= new Jugador(antiguedad=10,valorPase=150, partidosJugados=30)
+	var jugador4= new Jugador(antiguedad=15,valorPase=200, partidosJugados=40)
+	var jugador5= new Jugador(antiguedad=20,valorPase=250, partidosJugados=50)
+	var jugador6= new Jugador(antiguedad=25,valorPase=300, partidosJugados=60)
+	
+	var actividadSolcial1= new ActividadSocial(evalucaion=10,sociosParticipantes=#{socio1, socio2}, socioOrganizador=socio1)
+	var actividadSolcial2= new ActividadSocial(evalucaion=15,sociosParticipantes=#{socio3, socio4}, socioOrganizador=socio3)
+	var actividadSolcial3= new ActividadSocial(evalucaion=20,sociosParticipantes=#{socio5, socio6}, socioOrganizador=socio5)
+	
+	var equipo1=new Equipo(plantel=#{jugador1, jugador2}, capitan=jugador2, disciplina=futbool)
+	var equipo2=new Equipo(plantel=#{jugador3, jugador4}, capitan=jugador4, disciplina=otraDisciplina)
+	var equipo3=new Equipo(plantel=#{jugador5, jugador6}, capitan=jugador6, disciplina=otraDisciplina)
+	
+	
+	var clubProfesional=new Club(actividadesSociales=#{actividadSolcial1}, equiposParticiopantes=#{equipo1}, perfil=profesional, gastoMensual=200)
+	var clubComunitario=new Club(actividadesSociales=#{actividadSolcial2}, equiposParticiopantes=#{equipo2}, perfil=comunitario, gastoMensual=400)
+	var clubTradicional=new Club(actividadesSociales=#{actividadSolcial3}, equiposParticiopantes=#{equipo3}, perfil=tradicional, gastoMensual=100)
+
+	test "testX" {
+		
+		assert.that(true)
+
+	}
+}
